@@ -10,9 +10,9 @@ app.set('view engine','ejs')
 
 app.get('/', async (req, res) => {
     const employees = await fileHandler.read();
-    console.log(employees); 
-    res.send("Check terminal for employee data");
+    res.render('index', { employees });
 });
+
 
 app.listen(PORT,()=>{
     console.log(`Server running on ${PORT}`);
